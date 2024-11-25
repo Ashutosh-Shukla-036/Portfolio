@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  overflow-y: scroll; /* Ensure scrolling works */
+  scrollbar-width: none; /* For Firefox */
+}
+
+body::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Edge */
+}
+
+.main-content {
+  position: relative;
+  z-index: 1; /* Place content above animation */
+  min-height: 100vh;
+  background: transparent;
+}
+
+.threejs-animation {
+  pointer-events: none; /* Prevent interference with other content */
+}
