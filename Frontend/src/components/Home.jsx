@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Home = () => (
     <div className="container mx-auto px-6 py-16 text-center rounded-3xl shadow-lg bg-gradient-to-r">
       <h1 className="text-5xl font-extrabold text-white mb-6 animate__animated animate__fadeIn">
@@ -7,12 +9,12 @@ const Home = () => (
         Hi, I’m <strong>Ashutosh Shukla</strong>, a passionate developer with expertise in backend development, React.js, and MongoDB.
         Explore my projects and journey through this portfolio!
       </p>
-      <a
-        href="/projects"
+      <Link
+        to="/projects"
         className="inline-block bg-gradient-to-r from-[#ff7e5f] to-[#feb47b] text-white px-8 py-3 rounded-full font-bold shadow-lg hover:shadow-2xl transition-transform transform hover:scale-105 animate__animated animate__zoomIn"
       >
         View My Work
-      </a>
+      </Link>
       
       <div className="mt-12">
         <p className="text-lg text-gray-200 leading-7 animate__animated animate__fadeIn animate__delay-2s">
