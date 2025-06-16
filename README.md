@@ -6,4 +6,4 @@ This is my personal portfolio showcasing my journey from full-stack development 
 
 ---
 
-🔗 [**View Portfolio**](https://your-portfolio.vercel.app)  
+🔗 [**View Portfolio**](https://ashutoshshuklaportfolio.vercel.app/)  
