@@ -47,8 +47,8 @@ const Contact: React.FC = () => {
   };
 
   const inputClasses = `w-full px-4 py-3 rounded-xl text-sm transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent/50 ${theme === 'dark'
-      ? 'bg-white/[0.04] border border-white/[0.08] text-text-primary placeholder:text-text-tertiary focus:border-accent/30'
-      : 'bg-black/[0.02] border border-black/[0.08] text-text-primary-light placeholder:text-text-tertiary focus:border-accent/30'
+    ? 'bg-white/[0.04] border border-white/[0.08] text-text-primary placeholder:text-text-tertiary focus:border-accent/30'
+    : 'bg-black/[0.02] border border-black/[0.08] text-text-primary-light placeholder:text-text-tertiary focus:border-accent/30'
     }`;
 
   return (
@@ -92,8 +92,8 @@ const Contact: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <div className="card p-8">
-              <form onSubmit={handleSubmit} className="space-y-5">
+            <div className="card card-spotlight p-8">
+              <form onSubmit={handleSubmit} className="relative z-10 space-y-5">
                 <div>
                   <label
                     className={`block text-xs font-medium uppercase tracking-wider mb-2 ${theme === 'dark' ? 'text-text-secondary' : 'text-text-tertiary'
@@ -152,8 +152,8 @@ const Contact: React.FC = () => {
                   type="submit"
                   disabled={isSubmitting}
                   className={`w-full py-3.5 px-6 rounded-xl text-sm font-semibold transition-all duration-300 flex items-center justify-center gap-2 ${isSubmitting
-                      ? 'bg-text-secondary/20 text-text-tertiary cursor-not-allowed'
-                      : 'bg-accent text-white hover:bg-accent-hover'
+                    ? 'bg-text-secondary/20 text-text-tertiary cursor-not-allowed'
+                    : 'bg-accent text-white hover:bg-accent-hover'
                     }`}
                   whileHover={!isSubmitting ? { scale: 1.01 } : {}}
                   whileTap={!isSubmitting ? { scale: 0.99 } : {}}
@@ -183,8 +183,8 @@ const Contact: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             {/* Location */}
-            <div className="card p-6">
-              <div className="flex items-start gap-3 mb-4">
+            <div className="card card-spotlight p-6">
+              <div className="relative z-10 flex items-start gap-3 mb-4">
                 <MapPin size={18} className="text-accent flex-shrink-0 mt-0.5" />
                 <div>
                   <p
@@ -223,14 +223,14 @@ const Contact: React.FC = () => {
             </div>
 
             {/* Social links */}
-            <div className="card p-6">
+            <div className="card card-spotlight p-6">
               <p
-                className={`text-xs font-semibold tracking-widest uppercase mb-4 ${theme === 'dark' ? 'text-text-secondary' : 'text-text-tertiary'
+                className={`relative z-10 text-xs font-semibold tracking-widest uppercase mb-4 ${theme === 'dark' ? 'text-text-secondary' : 'text-text-tertiary'
                   }`}
               >
                 Connect
               </p>
-              <div className="space-y-2">
+              <div className="relative z-10 space-y-2">
                 {socialLinks.map((link, index) => (
                   <a
                     key={index}
@@ -238,8 +238,8 @@ const Contact: React.FC = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`flex items-center gap-3 p-3 rounded-xl transition-all duration-300 ${theme === 'dark'
-                        ? 'hover:bg-white/[0.04] text-text-secondary hover:text-text-primary'
-                        : 'hover:bg-black/[0.03] text-text-tertiary hover:text-text-primary-light'
+                      ? 'hover:bg-white/[0.04] text-text-secondary hover:text-text-primary'
+                      : 'hover:bg-black/[0.03] text-text-tertiary hover:text-text-primary-light'
                       }`}
                   >
                     {link.icon}

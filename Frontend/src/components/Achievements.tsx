@@ -74,7 +74,7 @@ const Achievements: React.FC = () => {
           {items.map((item, index) => (
             <motion.div
               key={index}
-              className="card p-6 flex items-start gap-5"
+              className="card card-spotlight p-6 flex items-start gap-5"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-40px' }}
@@ -85,12 +85,12 @@ const Achievements: React.FC = () => {
               }}
             >
               <div
-                className={`p-2.5 rounded-xl flex-shrink-0 ${theme === 'dark' ? 'bg-white/[0.06]' : 'bg-black/[0.04]'
+                className={`relative z-10 p-2.5 rounded-xl flex-shrink-0 ${theme === 'dark' ? 'bg-white/[0.06]' : 'bg-black/[0.04]'
                   }`}
               >
                 <span className={item.accent}>{item.icon}</span>
               </div>
-              <div>
+              <div className="relative z-10">
                 <p
                   className={`font-semibold text-sm mb-1 ${theme === 'dark' ? 'text-text-primary' : 'text-text-primary-light'
                     }`}

@@ -44,14 +44,14 @@ const Experience: React.FC = () => {
 
                 {/* Experience card */}
                 <motion.div
-                    className="card p-8 md:p-10"
+                    className="card card-spotlight p-8 md:p-10"
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: '-100px' }}
                     transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
                 >
                     {/* Header */}
-                    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-8">
+                    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-8 relative z-10">
                         <div>
                             <h3
                                 className={`headline-md mb-2 ${theme === 'dark' ? 'text-text-primary' : 'text-text-primary-light'
@@ -82,7 +82,7 @@ const Experience: React.FC = () => {
                     </div>
 
                     {/* Bullets */}
-                    <div className="space-y-5">
+                    <div className="space-y-5 relative z-10">
                         {bullets.map((bullet, index) => (
                             <motion.div
                                 key={index}

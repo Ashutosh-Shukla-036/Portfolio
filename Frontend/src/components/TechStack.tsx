@@ -71,7 +71,7 @@ const TechStack: React.FC = () => {
           {categories.map((cat, catIndex) => (
             <motion.div
               key={catIndex}
-              className="card p-6"
+              className="card card-spotlight p-6"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-60px' }}
@@ -82,12 +82,12 @@ const TechStack: React.FC = () => {
               }}
             >
               <p
-                className={`text-xs font-semibold tracking-widest uppercase mb-4 ${theme === 'dark' ? 'text-accent' : 'text-accent'
+                className={`relative z-10 text-xs font-semibold tracking-widest uppercase mb-4 ${theme === 'dark' ? 'text-accent' : 'text-accent'
                   }`}
               >
                 {cat.category}
               </p>
-              <div className="flex flex-wrap gap-2">
+              <div className="relative z-10 flex flex-wrap gap-2">
                 {cat.skills.map((skill) => (
                   <span key={skill} className="pill text-xs">
                     {skill}

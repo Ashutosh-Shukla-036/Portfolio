@@ -67,7 +67,7 @@ const Projects: React.FC = () => {
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              className="card overflow-hidden group"
+              className="card card-spotlight overflow-hidden group"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-80px' }}
@@ -77,7 +77,7 @@ const Projects: React.FC = () => {
                 ease: [0.16, 1, 0.3, 1],
               }}
             >
-              <div className="grid grid-cols-1 lg:grid-cols-2">
+              <div className="grid grid-cols-1 lg:grid-cols-2 relative z-10">
                 {/* Image */}
                 <div className="relative h-64 lg:h-auto overflow-hidden">
                   <div
@@ -98,8 +98,8 @@ const Projects: React.FC = () => {
                     </p>
                     <h3
                       className={`headline-md mb-4 ${theme === 'dark'
-                          ? 'text-text-primary'
-                          : 'text-text-primary-light'
+                        ? 'text-text-primary'
+                        : 'text-text-primary-light'
                         }`}
                     >
                       {project.title}
@@ -125,8 +125,8 @@ const Projects: React.FC = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${theme === 'dark'
-                          ? 'bg-white/[0.06] text-text-primary hover:bg-white/[0.12]'
-                          : 'bg-black/[0.04] text-text-primary-light hover:bg-black/[0.08]'
+                        ? 'bg-white/[0.06] text-text-primary hover:bg-white/[0.12]'
+                        : 'bg-black/[0.04] text-text-primary-light hover:bg-black/[0.08]'
                         }`}
                       whileHover={{ scale: 1.03 }}
                       whileTap={{ scale: 0.97 }}
@@ -167,8 +167,8 @@ const Projects: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
             className={`inline-flex items-center gap-2 text-sm font-medium transition-colors duration-300 ${theme === 'dark'
-                ? 'text-text-secondary hover:text-accent'
-                : 'text-text-tertiary hover:text-accent'
+              ? 'text-text-secondary hover:text-accent'
+              : 'text-text-tertiary hover:text-accent'
               }`}
             whileHover={{ x: 4 }}
           >
