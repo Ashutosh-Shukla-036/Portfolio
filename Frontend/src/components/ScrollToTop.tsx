@@ -10,41 +10,33 @@ const ScrollToTop: React.FC = () => {
 
   useEffect(() => {
     const toggleVisibility = () => {
-      if (window.pageYOffset > 300) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
+      setIsVisible(window.pageYOffset > 400);
     };
-
     window.addEventListener('scroll', toggleVisibility);
     return () => window.removeEventListener('scroll', toggleVisibility);
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
     <AnimatePresence>
       {isVisible && (
         <motion.button
-          className={`fixed bottom-8 right-8 p-4 rounded-full shadow-lg z-50 transition-all duration-300 ${
-            theme === 'dark'
-              ? 'bg-gray-800 text-white border border-gray-600 hover:bg-gray-700'
-              : 'bg-white text-gray-800 border border-gray-200 hover:bg-gray-50'
-          }`}
+          className={`fixed bottom-8 right-8 p-3 rounded-full z-50 transition-all duration-300 ${theme === 'dark'
+              ? 'glass border border-white/[0.08] text-text-secondary hover:text-text-primary'
+              : 'glass border border-black/[0.08] text-text-tertiary hover:text-text-primary-light'
+            }`}
           onClick={scrollToTop}
           initial={{ opacity: 0, scale: 0.8, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.8, y: 20 }}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
+          aria-label="Scroll to top"
         >
-          <ChevronUp size={24} />
+          <ChevronUp size={20} />
         </motion.button>
       )}
     </AnimatePresence>

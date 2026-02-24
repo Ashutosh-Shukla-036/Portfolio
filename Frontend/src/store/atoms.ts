@@ -2,7 +2,7 @@ import { atom } from 'recoil';
 
 export const themeState = atom({
   key: 'themeState',
-  default: 'light' as 'light' | 'dark',
+  default: 'dark' as 'light' | 'dark',
 });
 
 export const contactFormState = atom({

@@ -14,20 +14,20 @@ const ThemeToggle: React.FC = () => {
   return (
     <motion.button
       onClick={toggleTheme}
-      className={`relative p-3 rounded-full border-2 transition-all duration-300 ${
-        theme === 'dark'
-          ? 'bg-gray-800 border-gray-600 text-yellow-400'
-          : 'bg-white border-gray-200 text-gray-600'
-      } hover:scale-110 shadow-lg`}
+      className={`p-2 rounded-full transition-all duration-300 ${theme === 'dark'
+          ? 'text-text-secondary hover:text-accent'
+          : 'text-text-tertiary hover:text-accent'
+        }`}
       whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.95 }}
+      whileTap={{ scale: 0.9 }}
+      aria-label="Toggle theme"
     >
       <motion.div
-        initial={{ rotate: 0 }}
+        initial={false}
         animate={{ rotate: theme === 'dark' ? 180 : 0 }}
-        transition={{ duration: 0.3 }}
+        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
       >
-        {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+        {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
       </motion.div>
     </motion.button>
   );
