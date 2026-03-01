@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import { Github, Linkedin, ArrowDown } from 'lucide-react';
+import { Github, Linkedin, ArrowDown, FileText } from 'lucide-react';
 import { useRecoilValue } from 'recoil';
 import { themeState } from '../store/atoms';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
@@ -156,6 +156,21 @@ const Hero: React.FC = () => {
               transition={{ duration: 0.3 }}
             />
           </motion.button>
+
+          <motion.a
+            href="/Ashutosh_Shukla_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`inline-flex items-center gap-2 px-7 py-3 rounded-full text-sm font-semibold tracking-tight transition-all duration-300 ${theme === 'dark'
+                ? 'bg-white/[0.06] text-text-primary hover:bg-white/[0.12] border border-white/[0.08]'
+                : 'bg-black/[0.04] text-text-primary-light hover:bg-black/[0.08] border border-black/[0.08]'
+              }`}
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.97 }}
+          >
+            <FileText size={16} />
+            View Resume
+          </motion.a>
 
           <div className="flex items-center gap-3">
             <motion.a

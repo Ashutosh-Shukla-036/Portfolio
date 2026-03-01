@@ -2,20 +2,26 @@ import React from 'react';
 import { useRecoilValue } from 'recoil';
 import { themeState } from '../store/atoms';
 import { motion } from 'framer-motion';
-import { Code2, Target, Brain, TrendingUp, Award, ExternalLink, Trophy, Calendar, Zap, Medal } from 'lucide-react';
+import { Target, Brain, TrendingUp, Zap, Trophy, Award, Medal, Calendar, Code2, ExternalLink } from 'lucide-react';
 
 const DSAJourney: React.FC = () => {
   const theme = useRecoilValue(themeState);
 
   const stats = [
-    { label: 'Problems Solved', value: '221', icon: <Target size={24} />, color: 'from-blue-500 to-blue-600' },
-    { label: 'Easy Problems', value: '101', icon: <Zap size={24} />, color: 'from-green-500 to-green-600' },
-    { label: 'Medium Problems', value: '107', icon: <TrendingUp size={24} />, color: 'from-yellow-500 to-yellow-600' },
-    { label: 'Hard Problems', value: '13', icon: <Trophy size={24} />, color: 'from-red-500 to-red-600' },
-    { label: 'Contest Rating', value: '1349', icon: <Award size={24} />, color: 'from-purple-500 to-purple-600' },
-    { label: 'Top Percentile', value: '93.67%', icon: <Medal size={24} />, color: 'from-indigo-500 to-indigo-600' },
-    { label: 'Submissions (1yr)', value: '533', icon: <Code2 size={24} />, color: 'from-cyan-500 to-cyan-600' },
-    { label: 'Max Streak', value: '64 days', icon: <Calendar size={24} />, color: 'from-orange-500 to-orange-600' },
+    { label: 'Problems Solved', value: '221', icon: <Target size={20} /> },
+    { label: 'Easy', value: '101', icon: <Zap size={20} /> },
+    { label: 'Medium', value: '107', icon: <TrendingUp size={20} /> },
+    { label: 'Hard', value: '13', icon: <Trophy size={20} /> },
+    { label: 'Contest Rating', value: '1349', icon: <Award size={20} /> },
+    { label: 'Top Percentile', value: '93.67%', icon: <Medal size={20} /> },
+    { label: 'Submissions (1yr)', value: '533', icon: <Code2 size={20} /> },
+    { label: 'Max Streak', value: '64 days', icon: <Calendar size={20} /> },
+  ];
+
+  const problemDistribution = [
+    { type: 'Easy', count: 101, percentage: 45.7, color: 'bg-accent-green' },
+    { type: 'Medium', count: 107, percentage: 48.4, color: 'bg-accent-orange' },
+    { type: 'Hard', count: 13, percentage: 5.9, color: 'bg-accent-red' },
   ];
 
   const dsaTopics = [
@@ -69,249 +75,163 @@ const DSAJourney: React.FC = () => {
     },
   ];
 
-  // Problem distribution data for visualization
-  const problemDistribution = [
-    { type: 'Easy', count: 101, percentage: 45.7, color: 'bg-green-500' },
-    { type: 'Medium', count: 107, percentage: 48.4, color: 'bg-yellow-500' },
-    { type: 'Hard', count: 13, percentage: 5.9, color: 'bg-red-500' },
-  ];
-
   return (
     <section
       id="dsa"
-      className={`py-20 ${
-        theme === 'dark' ? 'bg-gray-900' : 'bg-gray-50'
-      }`}
+      className={`py-28 md:py-36 ${theme === 'dark' ? 'bg-black' : 'bg-surface-light'
+        }`}
     >
-      <div className="container mx-auto px-6">
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2
-            className={`text-4xl md:text-5xl font-bold mb-6 ${
-              theme === 'dark' ? 'text-white' : 'text-gray-900'
-            }`}
-          >
-            DSA + LeetCode Journey 🧠
-          </h2>
-        </motion.div>
+      <div className="section-divider mb-28" />
 
-        {/* Quote Block */}
+      <div className="max-w-[980px] mx-auto px-6">
+        {/* Section header */}
         <motion.div
-          className={`max-w-4xl mx-auto mb-12 p-8 rounded-2xl shadow-xl backdrop-blur-sm border-l-4 border-blue-500 ${
-            theme === 'dark'
-              ? 'bg-gray-800/50 border-gray-700'
-              : 'bg-white/70 border-gray-200'
-          }`}
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          whileHover={{ scale: 1.02, x: 10 }}
+          className="mb-16"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-100px' }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
-          <div className="flex items-center gap-4 mb-4">
-            <motion.div
-              animate={{ rotate: [0, 10, -10, 0] }}
-              transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
-            >
-              <Brain size={32} className="text-blue-500" />
-            </motion.div>
-            <blockquote
-              className={`text-xl md:text-2xl font-medium italic ${
-                theme === 'dark' ? 'text-gray-200' : 'text-gray-800'
+          <p className="text-accent text-sm font-medium tracking-widest uppercase mb-4">
+            DSA Journey
+          </p>
+          <h2
+            className={`headline-lg mb-6 ${theme === 'dark' ? 'text-text-primary' : 'text-text-primary-light'
               }`}
-            >
+          >
+            The grind that never stops.
+          </h2>
+          <div className="flex items-center gap-3 mb-2">
+            <Brain size={20} className="text-accent" />
+            <p className="body-md italic">
               "DSA is my gym — the brain workout I never skip."
-            </blockquote>
+            </p>
           </div>
         </motion.div>
 
-        {/* Stats Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-12">
+        {/* Stats grid */}
+        <motion.div
+          className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+        >
           {stats.map((stat, index) => (
             <motion.div
               key={index}
-              className={`p-4 md:p-6 rounded-xl shadow-lg backdrop-blur-sm text-center relative overflow-hidden ${
-                theme === 'dark'
-                  ? 'bg-gray-800/50 border border-gray-700'
-                  : 'bg-white/70 border border-gray-200'
-              }`}
-              initial={{ opacity: 0, y: 30 }}
+              className="card card-spotlight p-5 text-center"
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ scale: 1.05, y: -5 }}
+              transition={{ duration: 0.4, delay: index * 0.05 }}
             >
-              {/* Background gradient */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${stat.color} opacity-5`}></div>
-              
-              <motion.div 
-                className="text-blue-500 mb-3 flex justify-center relative z-10"
-                whileHover={{ scale: 1.2, rotate: 360 }}
-                transition={{ duration: 0.3 }}
-              >
+              <div className="text-accent mb-2 flex justify-center relative z-10">
                 {stat.icon}
-              </motion.div>
-              <motion.div
-                className={`text-xl md:text-2xl font-bold mb-1 relative z-10 ${
-                  theme === 'dark' ? 'text-white' : 'text-gray-900'
-                }`}
-                initial={{ scale: 0 }}
-                whileInView={{ scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 + 0.2 }}
+              </div>
+              <p
+                className={`text-xl font-bold font-display tabular-nums relative z-10 ${theme === 'dark' ? 'text-text-primary' : 'text-text-primary-light'
+                  }`}
               >
                 {stat.value}
-              </motion.div>
-              <div
-                className={`text-xs md:text-sm relative z-10 ${
-                  theme === 'dark' ? 'text-gray-400' : 'text-gray-600'
-                }`}
-              >
+              </p>
+              <p className="text-text-secondary text-xs mt-1 relative z-10">
                 {stat.label}
-              </div>
+              </p>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
 
-        {/* Problem Distribution Visualization */}
+        {/* Problem Distribution */}
         <motion.div
-          className={`max-w-4xl mx-auto mb-12 p-8 rounded-2xl shadow-xl backdrop-blur-sm ${
-            theme === 'dark'
-              ? 'bg-gray-800/50 border border-gray-700'
-              : 'bg-white/70 border border-gray-200'
-          }`}
-          initial={{ opacity: 0, y: 50 }}
+          className="card card-spotlight p-8 mb-16"
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.6, delay: 0.15 }}
         >
-          <h3
-            className={`text-2xl font-bold mb-6 text-center ${
-              theme === 'dark' ? 'text-white' : 'text-gray-900'
-            }`}
+          <p
+            className={`relative z-10 text-sm font-semibold tracking-widest uppercase mb-6 ${theme === 'dark' ? 'text-text-secondary' : 'text-text-tertiary'
+              }`}
           >
             Problem Distribution
-          </h3>
-          
-          <div className="space-y-4">
+          </p>
+          <div className="space-y-5 relative z-10">
             {problemDistribution.map((item, index) => (
-              <motion.div
-                key={index}
-                className="space-y-2"
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <div className="flex justify-between items-center">
+              <div key={index}>
+                <div className="flex justify-between items-center mb-2">
                   <span
-                    className={`font-medium ${
-                      theme === 'dark' ? 'text-gray-200' : 'text-gray-800'
-                    }`}
+                    className={`text-sm font-medium ${theme === 'dark' ? 'text-text-primary' : 'text-text-primary-light'
+                      }`}
                   >
                     {item.type}
                   </span>
-                  <span
-                    className={`text-sm ${
-                      theme === 'dark' ? 'text-gray-400' : 'text-gray-600'
-                    }`}
-                  >
+                  <span className="text-text-secondary text-xs tabular-nums">
                     {item.count} ({item.percentage}%)
                   </span>
                 </div>
                 <div
-                  className={`w-full rounded-full h-3 ${
-                    theme === 'dark' ? 'bg-gray-700' : 'bg-gray-200'
-                  }`}
+                  className={`w-full rounded-full h-2 ${theme === 'dark' ? 'bg-white/[0.06]' : 'bg-black/[0.06]'
+                    }`}
                 >
                   <motion.div
-                    className={`h-3 rounded-full ${item.color}`}
+                    className={`h-2 rounded-full ${item.color}`}
                     initial={{ width: 0 }}
                     whileInView={{ width: `${item.percentage}%` }}
                     viewport={{ once: true }}
-                    transition={{ duration: 1, delay: index * 0.2 }}
+                    transition={{ duration: 1.2, delay: index * 0.15, ease: [0.16, 1, 0.3, 1] }}
                   />
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </motion.div>
 
-        {/* DSA Focus Areas */}
+        {/* Focus Areas */}
         <motion.div
-          className={`max-w-6xl mx-auto mb-12 p-8 rounded-2xl shadow-xl backdrop-blur-sm ${
-            theme === 'dark'
-              ? 'bg-gray-800/50 border border-gray-700'
-              : 'bg-white/70 border border-gray-200'
-          }`}
-          initial={{ opacity: 0, y: 50 }}
+          className="mb-16"
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.6, delay: 0.1 }}
         >
-          <h3
-            className={`text-2xl font-bold mb-8 text-center ${
-              theme === 'dark' ? 'text-white' : 'text-gray-900'
-            }`}
+          <p
+            className={`text-sm font-semibold tracking-widest uppercase mb-6 ${theme === 'dark' ? 'text-text-secondary' : 'text-text-tertiary'
+              }`}
           >
             Special Focus Areas
-          </h3>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {dsaTopics.map((item, index) => (
               <motion.div
                 key={index}
-                className={`p-6 rounded-xl shadow-lg backdrop-blur-sm border transition-all duration-300 ${
-                  theme === 'dark'
-                    ? 'bg-gray-900/50 border-gray-600 hover:border-blue-400'
-                    : 'bg-white/80 border-gray-200 hover:border-blue-400'
-                } hover:shadow-xl`}
-                initial={{ opacity: 0, y: 30 }}
+                className="card card-spotlight p-6"
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ scale: 1.02, y: -5 }}
+                transition={{ duration: 0.4, delay: index * 0.06 }}
               >
-                <div className="space-y-4">
-                  <h4 
-                    className={`text-xl font-semibold ${
-                      theme === 'dark' ? 'text-white' : 'text-gray-800'
-                    }`}
+                <div className="relative z-10">
+                  <h4
+                    className={`font-semibold text-sm mb-2 ${theme === 'dark' ? 'text-text-primary' : 'text-text-primary-light'
+                      }`}
                   >
                     {item.topic}
                   </h4>
-                  <p 
-                    className={`text-sm leading-relaxed ${
-                      theme === 'dark' ? 'text-gray-300' : 'text-gray-600'
-                    }`}
-                  >
+                  <p className="text-text-secondary text-xs leading-relaxed mb-4">
                     {item.summary}
                   </p>
                   <div className="flex items-center justify-between">
-                    <span 
-                      className={`text-xs px-3 py-1 rounded-full ${
-                        theme === 'dark'
-                          ? 'bg-blue-900/50 text-blue-300 border border-blue-700'
-                          : 'bg-blue-100 text-blue-700 border border-blue-200'
-                      }`}
-                    >
-                      {item.repo}
-                    </span>
+                    <span className="pill text-xs">{item.repo}</span>
                     <motion.a
                       href={item.repoUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold text-white bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
+                      className="inline-flex items-center gap-1.5 text-xs text-accent hover:text-accent-hover transition-colors"
+                      whileHover={{ x: 3 }}
                     >
-                      <ExternalLink size={14} />
-                      View Repo
+                      <ExternalLink size={12} />
+                      View
                     </motion.a>
                   </div>
                 </div>
@@ -320,25 +240,24 @@ const DSAJourney: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* LeetCode Profile Button */}
+        {/* LeetCode CTA */}
         <motion.div
           className="text-center"
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
         >
           <motion.a
             href="https://leetcode.com/u/Ashutoshshukla_123/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-orange-500 to-red-600 rounded-full hover:from-orange-600 hover:to-red-700 transition-all duration-300 shadow-lg hover:shadow-xl"
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.95 }}
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-accent text-white text-sm font-semibold hover:bg-accent-hover transition-colors duration-300"
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.97 }}
           >
-            <Code2 size={24} />
+            <Code2 size={18} />
             View LeetCode Profile
-            <ExternalLink size={20} />
           </motion.a>
         </motion.div>
       </div>

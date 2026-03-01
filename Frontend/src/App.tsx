@@ -8,6 +8,7 @@ import Experience from './components/Experience';
 import Projects from './components/Projects';
 import TechStack from './components/TechStack';
 import Achievements from './components/Achievements';
+import DSAJourney from './components/DSAJourney';
 import Contact from './components/Contact';
 import ScrollToTop from './components/ScrollToTop';
 
@@ -37,6 +38,7 @@ const AppContent: React.FC = () => {
         <Projects />
         <TechStack />
         <Achievements />
+        <DSAJourney />
         <Contact />
       </main>
       <ScrollToTop />

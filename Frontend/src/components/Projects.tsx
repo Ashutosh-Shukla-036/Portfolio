@@ -5,11 +5,23 @@ import { motion } from 'framer-motion';
 import { ExternalLink, Github } from 'lucide-react';
 import aprameyaImg from '../assets/aprameya-productions.png';
 import cafootImg from '../assets/cafoot-carbon-footprint-tracker.png';
+import chessmindImg from '../assets/ChessMind.png';
 
 const Projects: React.FC = () => {
   const theme = useRecoilValue(themeState);
 
   const projects = [
+    {
+      title: 'ChessMind',
+      subtitle: 'AI Chess Analysis Platform',
+      description:
+        'Architected a full-stack Stockfish analysis platform utilizing WebSockets and background threading to stream real-time asynchronous move evaluations. Engineered a Redis caching layer using SHA-256 hashing that reduces repeated analysis latency by 80%, and a fault-tolerant engine pool with automated process recycling after 100 requests to prevent memory leaks.',
+      image: chessmindImg,
+      techStack: ['React', 'TypeScript', 'FastAPI', 'WebSockets', 'Python', 'Redis', 'Docker', 'Stockfish', 'Vercel'],
+      github: 'https://github.com/Ashutosh-Shukla-036/Chess',
+      demo: 'https://chessmind-six.vercel.app/',
+      accent: 'from-accent-purple to-accent',
+    },
     {
       title: 'Aprameya',
       subtitle: 'Full Stack Film Showcase Platform',
